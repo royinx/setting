@@ -1,0 +1,11 @@
+h5py
+numpy
+scipy
+pyyaml
+tabulate
+pillow
+matplotlib
+pygpu
+notebook
+pandas
+scikit-learn

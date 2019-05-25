@@ -1,0 +1,9 @@
+pygpu
+h5py
+matplotlib
+notebook
+pandas
+scikit-learn
+numpy
+pillow
+opencv-python
