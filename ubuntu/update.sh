@@ -12,4 +12,10 @@ sudo apt-get install -y zlib1g-dev libsqlite3-dev tk-dev
 sudo apt-get install -y libssl-dev openssl
 sudo apt-get install -y libffi-dev
 
+echo "alias py=python">>~/.bashrc
+echo "alias docker_now='watch -n 0.5 docker ps'">>~/.bashrc
+echo "alias docker_all='watch -n 0.5 docker ps -a'">>~/.bashrc
+echo "alias mon1='watch -n 0.5 nvidia-smi'">>~/.bashrc
+echo "alias mon2=htop">>~/.bashrc
+echo "alias mon3='watch -n 0.5 sensors'">>~/.bashrc
 
