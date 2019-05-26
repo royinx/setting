@@ -32,7 +32,11 @@ docker run --runtime=nvidia \
            --name=deepo \
            --privileged \
            -dit \
-           --rm \
+           -v ~/Desktop/python:/py/ \
+           -v /tmp/.X11-unix:/tmp/.X11-unix \
+           -e DISPLAY=unix$DISPLAY \
+           -v /dev/video0:/dev/video0 \
+           -v /dev/video1:/dev/video1 \
            deepo bash
 ```
 

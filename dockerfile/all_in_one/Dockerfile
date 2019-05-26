@@ -27,11 +27,6 @@ ENV LC_ALL=C.UTF-8 \
     LANG=C.UTF-8 \
     PYTHONPATH='/src/:$PYTHONPATH'
 
-VOLUME ~/Desktop/python /py/ \
-       /tmp/.X11-unix /tmp/.X11-unix \
-       /dev/video0 /dev/video0 \
-       /dev/video1 /dev/video1
-
 RUN echo "alias py='python'">>~/.bashrc
 
 WORKDIR /py
