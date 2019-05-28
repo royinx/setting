@@ -30,6 +30,7 @@ docker build -t deepo all_in_one/
 
 docker run --runtime=nvidia \
            --name=deepo \
+           --shm-size 8G \
            --privileged \
            -dit \
            -v ~/Desktop/python:/py/ \

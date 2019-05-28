@@ -7,3 +7,4 @@ scikit-learn
 numpy
 pillow
 opencv-python
+python3-tk
