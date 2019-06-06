@@ -55,6 +55,7 @@ RUN conda install \
     git clone git://github.com/keras-team/keras.git /src && pip install -e /src[tests] && \
     pip install git+git://github.com/keras-team/keras.git && \
     conda clean -yt
+RUN echo "alias py='python'">>~/.bashrc
 
 ENV LC_ALL=C.UTF-8 \
     KERAS_BACKEND=tensorflow \
