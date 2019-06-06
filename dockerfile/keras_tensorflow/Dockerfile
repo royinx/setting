@@ -61,7 +61,7 @@ ENV LC_ALL=C.UTF-8 \
     DISPLAY=unix$DISPLAY \
     LANG=C.UTF-8 \
     PYTHONPATH='/src/:$PYTHONPATH'
-
+RUN echo "alias py='python'">>~/.bashrc
 WORKDIR /py
 
 EXPOSE 2233
