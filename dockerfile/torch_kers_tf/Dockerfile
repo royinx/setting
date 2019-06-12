@@ -32,7 +32,7 @@ ENV NB_UID 1000
 
 RUN useradd -m -s /bin/bash -N -u $NB_UID $NB_USER && \
     echo "keras:keras" | chpasswd && \
-    adduser docker sudo && \
+    adduser keras sudo && \
     chown $NB_USER $CONDA_DIR -R && \
     mkdir -p /src && \
     chown $NB_USER /src
