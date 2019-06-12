@@ -7,6 +7,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
       bzip2 \
       g++ \
       git \
+      openssh-server \
       sudo \
       nano \
       curl \
@@ -67,3 +68,5 @@ WORKDIR /py
 EXPOSE 2233
 
 CMD jupyter notebook --port=2233 --ip=0.0.0.0
+
+ENTRYPOINT service ssh restart && bash

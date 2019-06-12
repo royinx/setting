@@ -7,6 +7,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
       bzip2 \
       g++ \
       git \
+      openssh-server \
       sudo \
       nano \
       curl \
@@ -30,11 +31,16 @@ ENV NB_USER keras
 ENV NB_UID 1000
 
 RUN useradd -m -s /bin/bash -N -u $NB_UID $NB_USER && \
+    echo "keras:keras" | chpasswd && \
+    adduser docker sudo && \
     chown $NB_USER $CONDA_DIR -R && \
     mkdir -p /src && \
     chown $NB_USER /src
 
 USER $NB_USER
+
+# RUN useradd -m docker && echo "docker:docker" | chpasswd && adduser docker sudo
+# USER docker
 
 ARG python_version=3.7
 
@@ -90,3 +96,6 @@ WORKDIR /py
 EXPOSE 2233
 
 CMD jupyter notebook --port=2233 --ip=0.0.0.0
+
+ENTRYPOINT service ssh restart && bash
+
