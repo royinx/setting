@@ -48,6 +48,7 @@ RUN conda config --append channels conda-forge
 RUN conda install -y python=${python_version}
 RUN pip install --upgrade pip && \
     pip install opencv-python \
+      psutil \
       tensorflow-gpu 
 
 # Install pytorch 
