@@ -49,6 +49,7 @@ RUN conda install -y python=${python_version}
 RUN pip install --upgrade pip && \
     pip install opencv-python \
       psutil \
+      GPUtil \
       tensorflow-gpu 
 
 # Install pytorch 
