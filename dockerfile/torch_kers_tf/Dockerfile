@@ -69,7 +69,15 @@ WORKDIR deep-person-reid/
 RUN pip install -r requirements.txt && \
     python setup.py install
 
-RUN rm -rf /home/keras/temp/*
+
+# Install pycocotools
+WORKDIR /home/keras/temp
+RUN git clone https://github.com/waleedka/coco.git
+WORKDIR coco/PythonAPI/
+RUN python setup.py build_ext install
+
+
+RUN rm -rf /home/keras/temp/
 
 
 RUN conda update conda
@@ -96,6 +104,4 @@ WORKDIR /py
 EXPOSE 2233
 
 CMD jupyter notebook --port=2233 --ip=0.0.0.0
-
-ENTRYPOINT service ssh restart && bash
 
