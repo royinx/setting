@@ -36,4 +36,4 @@ docker run --runtime=nvidia \
 ```
 
 ### Client:
-`ssh -X -p 53022 keras@ip` pw:keras
+`ssh -X -p 53022 keras@<ip>` pw:keras
