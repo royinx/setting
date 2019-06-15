@@ -50,10 +50,6 @@ RUN pip install --upgrade pip && \
     pip install opencv-python \
       tensorflow-gpu 
 
-ADD requirement_pip.txt requirement_pip.txt
-RUN pip install -r requirement_pip.txt && \
-    rm requirement_pip.txt  
-
 # Install pytorch 
 RUN pip install https://download.pytorch.org/whl/cu100/torch-1.1.0-cp37-cp37m-linux_x86_64.whl
 RUN pip install https://download.pytorch.org/whl/cu100/torchvision-0.3.0-cp37-cp37m-linux_x86_64.whl      
@@ -73,15 +69,7 @@ WORKDIR deep-person-reid/
 RUN pip install -r requirements.txt && \
     python setup.py install
 
-
-# Install pycocotools
-WORKDIR /home/keras/temp
-RUN git clone https://github.com/waleedka/coco.git
-WORKDIR coco/PythonAPI/
-RUN python setup.py build_ext install
-
-
-RUN rm -rf /home/keras/temp/
+RUN rm -rf /home/keras/temp/*
 
 
 RUN conda update conda
@@ -108,4 +96,6 @@ WORKDIR /py
 EXPOSE 2233
 
 CMD jupyter notebook --port=2233 --ip=0.0.0.0
+
+ENTRYPOINT service ssh restart && bash
 
