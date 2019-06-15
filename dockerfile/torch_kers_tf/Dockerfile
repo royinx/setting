@@ -49,7 +49,7 @@ RUN conda install -y python=${python_version}
 
 RUN apt-get install python3-tk
 ADD requirement_pip.txt requirement_pip.txt
-RUN pip install --upgrade pip && 
+RUN pip install --upgrade pip && \
     pip install -r requirement_pip.txt && \
     rm requirement_pip.txt  
 
