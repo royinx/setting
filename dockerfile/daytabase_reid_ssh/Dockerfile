@@ -14,6 +14,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
       libsm6 \
       libxext6 \
       libxrender1 \
+      Xorg \
       wget && \
     rm -rf /var/lib/apt/lists/*
 
@@ -103,17 +104,19 @@ ENV LC_ALL=C.UTF-8 \
     LANG=C.UTF-8 \
     PYTHONPATH='/src/:$PYTHONPATH'
 RUN echo "alias py='python'">>~/.bashrc
-WORKDIR /py
 
 EXPOSE 2233
 
 CMD jupyter notebook --port=2233 --ip=0.0.0.0
 
+USER root
+WORKDIR /py
+ENTRYPOINT service ssh restart && bash
 
 
 
 # docker run --runtime=nvidia \
-#          --name=daytabase_gui \
+#          --name=daytabase_gui_ssh \
 #          --shm-size 11G \
 #          --privileged \
 #          -dit \
@@ -122,6 +125,8 @@ CMD jupyter notebook --port=2233 --ip=0.0.0.0
 #          -e DISPLAY=unix$DISPLAY \
 #          -v /dev/video0:/dev/video0 \
 #          -v /dev/video1:/dev/video1 \
-#          -p 52022:22 \
-#          -p 3322:2233 \
-#          tkt bash
+#          -p 53022:22 \
+#          -p 2234:2233 \
+#          daytabase_gui_ssh bash
+
+# ssh -X -p 53022 keras@ip   # pw:keras
