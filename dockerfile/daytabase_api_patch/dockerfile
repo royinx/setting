@@ -1,0 +1,12 @@
+FROM daytabase_api
+
+USER root
+RUN pip install flask \
+	flask_cors \
+	gevent
+
+WORKDIR /py/yolact_api
+
+ENTRYPOINT python eval.py --trained_model=weights/yolact_base_54_800000.pth --score_threshold=0.4 --top_k=10 --image=data/dayta/dayta1.jpg --api && bash
+
+
