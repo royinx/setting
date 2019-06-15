@@ -44,14 +44,15 @@ USER $NB_USER
 
 ARG python_version=3.7
 
+# Install Python
 RUN conda config --append channels conda-forge
 RUN conda install -y python=${python_version}
 
-RUN apt-get install python3-tk
+# Install Daytabase python pip dependency 
 ADD requirement_pip.txt requirement_pip.txt
 RUN pip install --upgrade pip && \
-    pip install -r requirement_pip.txt && \
-    rm requirement_pip.txt  
+    pip install -r requirement_pip.txt
+
 
 # Install pytorch 
 RUN pip install https://download.pytorch.org/whl/cu100/torch-1.1.0-cp37-cp37m-linux_x86_64.whl
@@ -82,7 +83,7 @@ RUN python setup.py build_ext install
 
 RUN rm -rf /home/keras/temp/
 
-
+# Install General python conda dependency
 RUN conda update conda
 RUN conda install \
       h5py \
@@ -107,3 +108,20 @@ WORKDIR /py
 EXPOSE 2233
 
 CMD jupyter notebook --port=2233 --ip=0.0.0.0
+
+
+
+
+# docker run --runtime=nvidia \
+#          --name=daytabase_gui \
+#          --shm-size 11G \
+#          --privileged \
+#          -dit \
+#          -v ~/Documents:/py/ \
+#          -v /tmp/.X11-unix:/tmp/.X11-unix \
+#          -e DISPLAY=unix$DISPLAY \
+#          -v /dev/video0:/dev/video0 \
+#          -v /dev/video1:/dev/video1 \
+#          -p 52022:22 \
+#          -p 3322:2233 \
+#          tkt bash
