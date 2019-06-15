@@ -46,12 +46,11 @@ ARG python_version=3.7
 
 RUN conda config --append channels conda-forge
 RUN conda install -y python=${python_version}
-RUN pip install --upgrade pip && \
-    pip install opencv-python \
-      tensorflow-gpu 
 
+RUN apt-get install python3-tk
 ADD requirement_pip.txt requirement_pip.txt
-RUN pip install -r requirement_pip.txt && \
+RUN pip install --upgrade pip && 
+    pip install -r requirement_pip.txt && \
     rm requirement_pip.txt  
 
 # Install pytorch 
@@ -108,4 +107,3 @@ WORKDIR /py
 EXPOSE 2233
 
 CMD jupyter notebook --port=2233 --ip=0.0.0.0
-

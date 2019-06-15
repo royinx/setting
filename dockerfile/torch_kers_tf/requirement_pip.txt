@@ -14,4 +14,3 @@ redis
 pillow
 opencv-python
 tensorflow-gpu
-python3-tk
