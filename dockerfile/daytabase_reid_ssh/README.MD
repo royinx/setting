@@ -1,3 +1,5 @@
+last updated: 12June, 2019
+
 CUDA	10.0
 cudnn	7
 python	3.7
@@ -9,7 +11,10 @@ pytorch 1.1.0
 torchvision 0.3.0
 apex
 
+Xorg
 
+
+### Server:
 11G is using the VRAM from GPU, adjust the size to your GPU
 ```
 docker run --runtime=nvidia \
@@ -22,7 +27,10 @@ docker run --runtime=nvidia \
            -e DISPLAY=unix$DISPLAY \
            -v /dev/video0:/dev/video0 \
            -v /dev/video1:/dev/video1 \
-           -p 52022:22 \
-           -p 2233:2233 \
+           -p 53022:22 \
+           -p 2234:2233 \
            daytabase_gui bash
 ```
+
+### Client:
+`ssh -X -p 53022 keras@ip   # pw:keras`
