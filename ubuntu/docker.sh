@@ -18,8 +18,12 @@ sudo add-apt-repository \
 
 sudo apt-get update
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+
+#allow access docker without sudo
 sudo groupadd docker
 sudo usermod -aG docker $USER
+
+#nvidia docker
 
 curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | \
   sudo apt-key add -
