@@ -19,9 +19,11 @@ Xorg
 
 ### Server:
 11G is using the VRAM from GPU, adjust the size to your GPU
+
+`docker build -t daytabase_gui_ssh daytabase_reid_ssh`
 ```
 docker run --runtime=nvidia \
-           --name=daytabase_gui \
+           --name=daytabase_gui_ssh \
            --shm-size 11G \
            --privileged \
            -dit \
@@ -32,7 +34,7 @@ docker run --runtime=nvidia \
            -v /dev/video1:/dev/video1 \
            -p 53022:22 \
            -p 2234:2233 \
-           daytabase_gui bash
+           daytabase_gui_ssh bash
 ```
 
 ### Client:
