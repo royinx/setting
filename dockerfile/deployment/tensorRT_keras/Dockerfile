@@ -13,9 +13,11 @@ RUN apt-get update && \
       wget && \
     rm -rf /var/lib/apt/lists/*
 
-ENV CONDA_DIR /opt/conda
+RUN mkdir -p /home/temp
 ENV PATH $CONDA_DIR/bin:$PATH
 
+ENV CONDA_DIR /opt/conda
+WORKDIR /home/temp/
 RUN wget --quiet --no-check-certificate https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh && \
     /bin/bash /Miniconda3-latest-Linux-x86_64.sh -f -b -p $CONDA_DIR && \
     rm Miniconda3-latest-Linux-x86_64.sh && \
