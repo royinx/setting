@@ -38,7 +38,8 @@ RUN useradd -m -s /bin/bash -N -u $NB_UID $NB_USER && \
     chown $NB_USER /src
 
 USER $NB_USER
-
+WORKDIR /py 
+USER root
 ARG python_version=3.7
 
 # Install Python
@@ -74,4 +75,5 @@ ENV LC_ALL=C.UTF-8 \
     PYTHONPATH='/src/:$PYTHONPATH'
 
 RUN echo "alias py='python'">>~/.bashrc
+USER $NB_USER
 WORKDIR /py
