@@ -13,21 +13,8 @@ RUN apt-get update && \
       wget && \
     rm -rf /var/lib/apt/lists/*
 
-RUN mkdir -p /home/temp
-WORKDIR /home/temp/
-
-ENV CONDA_DIR /opt/conda
-ENV PATH $CONDA_DIR/bin:$PATH
-
-RUN wget --quiet --no-check-certificate https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-RUN /bin/bash ./Miniconda3-latest-Linux-x86_64.sh -f -b -p $CONDA_DIR && \
-    rm Miniconda3-latest-Linux-x86_64.sh && \
-    echo export PATH=$CONDA_DIR/bin:'$PATH' > /etc/profile.d/conda.sh
-
-RUN conda install -y tensorflow-gpu \ 
-					keras && \
-					conda clean -yt
-
+RUN pip3 install tensorflow-gpu==1.13.1 \ 
+		keras
 RUN echo "alias py='python'">>~/.bashrc
 
 WORKDIR /py
