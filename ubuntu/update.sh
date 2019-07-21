@@ -11,6 +11,7 @@ sudo apt-get install -y libncursesw5-dev libgdbm-dev libc6-dev
 sudo apt-get install -y zlib1g-dev libsqlite3-dev tk-dev
 sudo apt-get install -y libssl-dev openssl
 sudo apt-get install -y libffi-dev
+sudo apt-get install -y net-tools
 
 echo "alias py=python">>~/.bashrc
 echo "alias docker_now='watch -n 0.5 docker ps'">>~/.bashrc
