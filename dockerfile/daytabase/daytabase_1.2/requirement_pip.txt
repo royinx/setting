@@ -13,3 +13,6 @@ pylint
 redis
 pillow
 opencv-python
+flask
+flask_cors
+gevent

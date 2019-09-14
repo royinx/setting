@@ -1,19 +1,14 @@
-ARG cuda_version=10.0
+ARG cuda_version=10.1
 ARG cudnn_version=7
 FROM nvidia/cuda:${cuda_version}-cudnn${cudnn_version}-devel
 
 # Install system packages
 RUN apt-get update && apt-get install -y --no-install-recommends \
-      bzip2 \
       g++ \
       git \
-      openssh-server \
       sudo \
       nano \
       curl \
-      libsm6 \
-      libxext6 \
-      libxrender1 \
       wget && \
     rm -rf /var/lib/apt/lists/*
 
@@ -39,20 +34,6 @@ RUN pip install --upgrade pip && \
     pip install -r requirement_pip.txt
 
 
-# Install pytorch 
-RUN pip install https://download.pytorch.org/whl/cu100/torch-1.1.0-cp37-cp37m-linux_x86_64.whl
-RUN pip install https://download.pytorch.org/whl/cu100/torchvision-0.3.0-cp37-cp37m-linux_x86_64.whl      
-
-
-RUN mkdir -p /home/docker/temp
-# Install Apex (pytorch half precision)
-WORKDIR /home/docker/temp
-RUN git clone https://github.com/NVIDIA/apex 
-WORKDIR apex/
-RUN pip install -v --no-cache-dir --global-option="--cpp_ext" --global-option="--cuda_ext" .
-
-
-RUN rm -rf /home/docker/temp/
 
 # Install General python conda dependency
 RUN conda update conda
@@ -60,7 +41,6 @@ RUN conda install \
       h5py \
       matplotlib \
       notebook \
-      pandas \
       scikit-learn \
       && \
     git clone git://github.com/keras-team/keras.git /src && pip install -e /src[tests] && \

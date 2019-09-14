@@ -1,0 +1,7 @@
+scipy==1.2.1
+pandas==0.24.2
+numpy==1.16.1
+tqdm
+pillow
+opencv-python
+mxnet-cu101
