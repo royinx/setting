@@ -1,4 +1,4 @@
-`docker build -t trt_mxnet -f Dockerfile .`
+`docker build -t trt_mxnet:6.0 -f Dockerfile .`
 
 ```
 docker run --runtime=nvidia \
@@ -9,5 +9,5 @@ docker run --runtime=nvidia \
            -v ~/Desktop/python:/py/ \
            -v /tmp/.X11-unix:/tmp/.X11-unix \
            -e DISPLAY=unix$DISPLAY \
-           trt_mxnet bash
+           trt_mxnet:6.0 bash
 ```
