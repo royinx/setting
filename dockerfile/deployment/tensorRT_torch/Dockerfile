@@ -15,8 +15,9 @@ RUN apt-get update && \
       wget && \
     rm -rf /var/lib/apt/lists/*
 
-RUN pip3 install https://download.pytorch.org/whl/cu100/torch-1.1.0-cp35-cp35m-linux_x86_64.whl
-RUN pip3 install https://download.pytorch.org/whl/cu100/torchvision-0.3.0-cp35-cp35m-linux_x86_64.whl
+RUN pip3 install https://files.pythonhosted.org/packages/ae/05/50a05de5337f7a924bb8bd70c6936230642233e424d6a9747ef1cfbde353/torch-1.3.0-cp36-cp36m-manylinux1_x86_64.whl
+RUN pip3 install https://files.pythonhosted.org/packages/fc/23/d418c9102d4054d19d57ccf0aca18b7c1c1f34cc0a136760b493f78ddb06/torchvision-0.4.1-cp36-cp36m-manylinux1_x86_64.whl
+
 RUN pip3 install onnx
 
 RUN echo "alias py='python'">>~/.bashrc
