@@ -1,4 +1,4 @@
-FROM nvcr.io/nvidia/tensorrt:19.02-py3
+FROM nvcr.io/nvidia/tensorrt:19.09-py3
 # nvcr.io/nvidia/tensorrt:<xx.xx>-py<x>
 # TRT_container 19.06 : TRT 5.1.5 RC, cuDNN 7.6.0, CUDA 10.1.168, cuBLAS 10.2.0.168
 # TRT_container 19.02 : TRT 5.0.2, cuDNN 7.4.2, CUDA 10.0.130, cuBLAS 10.0.130
