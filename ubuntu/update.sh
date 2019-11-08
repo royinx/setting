@@ -19,4 +19,5 @@ echo "alias docker_all='watch -n 0.5 docker ps -a'">>~/.bashrc
 echo "alias mon1='watch -n 0.5 nvidia-smi'">>~/.bashrc
 echo "alias mon2=htop">>~/.bashrc
 echo "alias mon3='watch -n 0.5 sensors'">>~/.bashrc
+echo "alias mem='sync && echo 3 | sudo tee /proc/sys/vm/drop_caches'">>~/.bashrc
 
