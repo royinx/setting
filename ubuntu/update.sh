@@ -12,6 +12,7 @@ sudo apt-get install -y zlib1g-dev libsqlite3-dev tk-dev
 sudo apt-get install -y libssl-dev openssl
 sudo apt-get install -y libffi-dev
 sudo apt-get install -y net-tools
+sudo apt-get install -y openssh-server
 
 echo "alias py=python">>~/.bashrc
 echo "alias docker_now='watch -n 0.5 docker ps'">>~/.bashrc
