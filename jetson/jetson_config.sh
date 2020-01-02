@@ -10,7 +10,7 @@ sudo nvpmodel -m 0
 # change to 5W mode (micro-usb power supply)
 # sudo nvpmodel -m 1
 
-sudo fallocate -l 8G /swapfile
+sudo fallocate -l 16G /swapfile
 sudo chmod 600 /swapfile
 ls -lh /swapfile
 sudo mkswap /swapfile
