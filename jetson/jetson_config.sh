@@ -18,7 +18,7 @@ sudo mkswap /swapfile
 sudo swapon /swapfile
 
 sudo swapon -show
-sudo bash -c 'echo "/var/swapfile swap swap defaults 0 0" >> /etc/fstab'
+sudo bash -c 'sudo echo "/swapfile none swap sw 0 0" >> /etc/fstab'
 
 echo "export CUDA_HOME=/usr/local/cuda-10.0">>~/.bashrc
 echo "export LD_LIBRARY_PATH=/usr/local/cuda-10.0/lib64:$LD_LIBRARY_PATH">>~/.bashrc
