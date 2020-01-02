@@ -15,8 +15,9 @@ sudo apt-get install -y net-tools
 sudo apt-get install -y openssh-server
 sudo apt-get install -y git nano
 
+pip3 install numpy
 
-echo "alias py=python">>~/.bashrc
+echo "alias py=python3">>~/.bashrc
 echo "alias docker_now='watch -n 0.5 docker ps'">>~/.bashrc
 echo "alias docker_all='watch -n 0.5 docker ps -a'">>~/.bashrc
 echo "alias mon1='watch -n 0.5 nvidia-smi'">>~/.bashrc
