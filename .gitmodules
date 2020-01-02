@@ -1,0 +1,3 @@
+[submodule "jetson/CSI-Camera"]
+	path = jetson/CSI-Camera
+	url = https://github.com/JetsonHacksNano/CSI-Camera
