@@ -1,4 +1,4 @@
-sudo pacman -Sy --noconfirm git base-devel docker-compose
+sudo pacman -Sy --noconfirm bash-completion git base-devel docker-compose
 
 # 安裝 yay
 git clone https://aur.archlinux.org/yay.git
