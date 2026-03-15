@@ -12,3 +12,8 @@ sudo pacman -Sy nvidia-open
 yay -S nvidia-container-toolkit
 sudo systemctl restart docker
 docker run --rm --gpus all python:3.11-slim nvidia-smi
+
+# monitor
+sudo pacman -Sy --noconfirm htop
+echo "alias mon1='watch -n 0.5 nvidia-smi'">>~/.bashrc
+echo "alias mon2=htop">>~/.bashrc
